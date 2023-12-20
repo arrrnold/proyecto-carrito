@@ -22,6 +22,45 @@
             android:gravity="center_horizontal|bottom"
             android:orientation="vertical">
 
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnActivar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Activar" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDispositivosBT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="Dispositivos BT" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150sp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnIzquierda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Izquierda" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDerecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10sp"
+                    android:text="Derecha" />
+
+
+            </LinearLayout>
+
+
         </LinearLayout>
         <!---->
 
