@@ -56,15 +56,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10sp"
                     android:text="Derecha" />
-
-
             </LinearLayout>
-
-
         </LinearLayout>
-        <!---->
 
         <!-- columna de botones central -->
+        <!---->
+
+        <!-- columna de botones derecha -->
         <LinearLayout
             android:layout_width="0sp"
             android:layout_height="match_parent"
@@ -75,29 +73,40 @@
             android:orientation="vertical">
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spinnerCarrito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnApagar"
+                android:id="@+id/btnEncenderVerde"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100sp"
-                android:text="Apagar" />
-
+                android:layout_marginTop="80sp"
+                android:text="Encender Verde" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEncender"
+                android:id="@+id/btnApagarVerde"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10sp"
-                android:text="Encender" />
+                android:text="Apagar Verde" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEncenderRojo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="Encender Rojo" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApagarRojo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="Apagar Rojo" />
 
         </LinearLayout>
-        <!---->
 
-        <!-- columna de botones derecha -->
         <LinearLayout
             android:layout_width="0sp"
             android:layout_height="match_parent"
