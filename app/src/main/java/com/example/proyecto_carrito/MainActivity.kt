@@ -1,8 +1,5 @@
 package com.example.proyecto_carrito
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-
 //Paquetes a importar
 import android.Manifest
 import android.bluetooth.BluetoothAdapter
@@ -12,13 +9,19 @@ import android.bluetooth.BluetoothSocket
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.google.android.material.materialswitch.MaterialSwitch
 import java.io.IOException
-import java.util.*
+import java.util.UUID
 
 //Constante global -> verificar si el dispositivo BT (si es posible habilitar la comunicación bt en el dispositivo)
 const val REQUEST_ENABLE_BT = 1
@@ -50,10 +53,17 @@ class MainActivity : AppCompatActivity() {
         val btnDispositivosBt = findViewById<Button>(R.id.btnDispositivosBT)
         val btnLeft = findViewById<Button>(R.id.btnIzquierda)
         val btnRight = findViewById<Button>(R.id.btnDerecha)
+
+//        controlar con botones
         val btnApagarRojo = findViewById<Button>(R.id.btnApagarRojo)
         val btnEncenderRojo = findViewById<Button>(R.id.btnEncenderRojo)
         val btnApagarVerde = findViewById<Button>(R.id.btnApagarVerde)
         val btnEncenderVerde = findViewById<Button>(R.id.btnEncenderVerde)
+
+//        controlar con switches
+        val swRojo = findViewById<MaterialSwitch>(R.id.swRojo)
+        val swVerde = findViewById<MaterialSwitch>(R.id.swVerde)
+
         val btnConectar = findViewById<Button>(R.id.btnConectar)
         val btnDesconectar = findViewById<Button>(R.id.btnDesconectar)
         val btnAdelante = findViewById<Button>(R.id.btnAdelante)
@@ -172,20 +182,38 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        btnEncenderRojo.setOnClickListener {
-            sendCommand("U")
+//        apagar con botones
+//        btnEncenderRojo.setOnClickListener {
+//            sendCommand("U")
+//        }
+//
+//        btnApagarRojo.setOnClickListener {
+//            sendCommand("u")
+//        }
+//
+//        btnEncenderVerde.setOnClickListener {
+//            sendCommand("W")
+//        }
+//
+//        btnApagarVerde.setOnClickListener {
+//            sendCommand("w")
+//        }
+
+//        apagar con switches
+        swRojo.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                sendCommand("U")
+            } else {
+                sendCommand("u")
+            }
         }
 
-        btnApagarRojo.setOnClickListener {
-            sendCommand("u")
-        }
-
-        btnEncenderVerde.setOnClickListener {
-            sendCommand("W")
-        }
-
-        btnApagarVerde.setOnClickListener {
-            sendCommand("w")
+        swVerde.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                sendCommand("W")
+            } else {
+                sendCommand("w")
+            }
         }
 
         //------Avance el carrito-------

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,38 +9,57 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="10sp"
         android:orientation="horizontal">
 
         <!-- columna de botones izquierda -->
         <LinearLayout
             android:layout_width="0sp"
             android:layout_height="match_parent"
-            android:layout_marginTop="10sp"
-            android:layout_marginBottom="10sp"
             android:layout_weight=".3"
             android:gravity="center_horizontal|bottom"
             android:orientation="vertical">
 
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnActivar"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Activar" />
+                android:layout_height="0sp"
+                android:layout_gravity="start"
+                android:layout_weight=".9"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingStart="10sp">
 
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDispositivosBT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:text="Dispositivos BT" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnActivar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Activar" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDesconectar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:text="Desconectar" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDispositivosBT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:text="Dispositivos BT" />
+
+
+            </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="150sp"
+                android:layout_height="0sp"
+                android:layout_weight=".2"
+                android:gravity="bottom"
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
@@ -66,84 +84,111 @@
         <LinearLayout
             android:layout_width="0sp"
             android:layout_height="match_parent"
-            android:layout_marginTop="10sp"
-            android:layout_marginBottom="10sp"
             android:layout_weight=".3"
             android:gravity="center_horizontal|bottom"
             android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinnerCarrito"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="0sp"
+                android:layout_weight=".3"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEncenderVerde"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80sp"
-                android:text="Encender Verde" />
+                <Spinner
+                    android:id="@+id/spinnerCarrito"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnApagarVerde"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:text="Apagar Verde" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConectar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:text="Conectar" />
+            </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEncenderRojo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:text="Encender Rojo" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0sp"
+                android:layout_weight=".7"
+                android:gravity="bottom|center_horizontal"
+                android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnApagarRojo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:text="Apagar Rojo" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEncenderVerde"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Encender Verde" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnApagarVerde"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:text="Apagar Verde" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEncenderRojo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:text="Encender Rojo" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnApagarRojo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:text="Apagar Rojo" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0sp"
             android:layout_height="match_parent"
-            android:layout_marginTop="10sp"
-            android:layout_marginBottom="10sp"
             android:layout_weight=".3"
-            android:gravity="center_horizontal|bottom"
+            android:gravity="center_horizontal|bottom|end"
+            android:paddingEnd="10sp"
             android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnConectar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:text="Conectar" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0sp"
+                android:layout_weight=".8"
+                android:gravity="end"
+                android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDesconectar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:text="Desconectar" />
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/swVerde"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Led Verde" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/swRojo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Led Rojo" />
+
+
+            </LinearLayout>
 
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAdelante"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100sp"
-                android:text="Adelante" />
+                android:layout_marginTop="100sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAtras"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10sp"
-                android:text="Atrás" />
+                android:background="@drawable/ic_abajo" />
 
 
         </LinearLayout>
