@@ -33,23 +33,25 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnActivar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Activar" />
+                    android:layout_width="54sp"
+                    android:layout_height="54sp"
+                    android:background="@drawable/ic_activarbt" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDesconectar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="54sp"
+                    android:layout_height="54sp"
                     android:layout_marginTop="10sp"
-                    android:text="Desconectar" />
+                    android:background="@drawable/ic_desbt" />
+
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDispositivosBT"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="54sp"
+                    android:layout_height="54sp"
                     android:layout_marginTop="10sp"
-                    android:text="Dispositivos BT" />
+                    android:background="@drawable/ic_buscarbt"
+                    />
 
 
             </LinearLayout>
@@ -66,14 +68,14 @@
                     android:id="@+id/btnIzquierda"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Izquierda" />
+                    android:background="@drawable/ic_izquierda" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDerecha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10sp"
-                    android:text="Derecha" />
+                    android:background="@drawable/ic_derecha" />
             </LinearLayout>
         </LinearLayout>
 
@@ -179,6 +181,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAdelante"
+                android:background="@drawable/ic_arriba"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100sp" />
