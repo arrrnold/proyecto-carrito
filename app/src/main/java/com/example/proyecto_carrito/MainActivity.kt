@@ -54,12 +54,6 @@ class MainActivity : AppCompatActivity() {
         val btnLeft = findViewById<Button>(R.id.btnIzquierda)
         val btnRight = findViewById<Button>(R.id.btnDerecha)
 
-//        controlar con botones
-        val btnApagarRojo = findViewById<Button>(R.id.btnApagarRojo)
-        val btnEncenderRojo = findViewById<Button>(R.id.btnEncenderRojo)
-        val btnApagarVerde = findViewById<Button>(R.id.btnApagarVerde)
-        val btnEncenderVerde = findViewById<Button>(R.id.btnEncenderVerde)
-
 //        controlar con switches
         val swRojo = findViewById<MaterialSwitch>(R.id.swRojo)
         val swVerde = findViewById<MaterialSwitch>(R.id.swVerde)
@@ -75,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             StartActivityForResult()
         ) { result ->
             if (result.resultCode == REQUEST_ENABLE_BT) {
-                Log.i("MainActivity", "ACTIVIDAD REGISTRADA")
+                Log.i("MainActivity", "Actividad registrada")
             }
         }
 
@@ -86,11 +80,15 @@ class MainActivity : AppCompatActivity() {
         if (mBtAdapter == null) {
             Toast.makeText(
                 this,
-                "Bluetooth no está disponible en este dipositivo",
+                "El Bluetooth no está disponible en este dipositivo",
                 Toast.LENGTH_LONG
             ).show()
         } else {
-            Toast.makeText(this, "Bluetooth está disponible en este dispositivo", Toast.LENGTH_LONG)
+            Toast.makeText(
+                this,
+                "El Bluetooth está disponible en este dispositivo",
+                Toast.LENGTH_LONG
+            )
                 .show()
         }
         //--------Código para proceder con la comunicación con el dispositivo Bluetooth------------
@@ -101,7 +99,8 @@ class MainActivity : AppCompatActivity() {
         btnActivar.setOnClickListener {
             if (mBtAdapter.isEnabled) {
                 //Si ya está activado
-                Toast.makeText(this, "Bluetooth ya se encuentra activado", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "El Bluetooth ya se encuentra activado", Toast.LENGTH_LONG)
+                    .show()
             } else {
                 //Encender Bluetooth
                 val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
@@ -120,12 +119,12 @@ class MainActivity : AppCompatActivity() {
         btnDesconectar.setOnClickListener {
             if (!mBtAdapter.isEnabled) {
                 //Si ya está desactivado
-                Toast.makeText(this, "Bluetooth ya se encuentra desactivado", Toast.LENGTH_LONG)
+                Toast.makeText(this, "El Bluetooth ya se encuentra desactivado", Toast.LENGTH_LONG)
                     .show()
             } else {
                 //Encender Bluetooth
                 mBtAdapter.disable()
-                Toast.makeText(this, "Se ha desactivado el bluetooth", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Se ha desactivado el Bluetooth", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -152,7 +151,7 @@ class MainActivity : AppCompatActivity() {
                 val noDevices = "Ningun dispositivo pudo ser emparejado"
                 mAddressDevices!!.add(noDevices)
                 mNameDevices!!.add(noDevices)
-                Toast.makeText(this, "Primero vincule un dispositivo bluetooth", Toast.LENGTH_LONG)
+                Toast.makeText(this, "Primero vincule un dispositivo Bluetooth", Toast.LENGTH_LONG)
                     .show()
             }
         }
@@ -164,40 +163,22 @@ class MainActivity : AppCompatActivity() {
                     val IntValSpin = SpinnerCar.selectedItemPosition
                     m_address = mAddressDevices!!.getItem(IntValSpin).toString()
                     Toast.makeText(this, m_address, Toast.LENGTH_LONG).show()
-                    // Cancel discovery because it otherwise slows down the connection.
                     mBtAdapter?.cancelDiscovery()
                     val device: BluetoothDevice = mBtAdapter.getRemoteDevice(m_address)
                     m_bluetoothSocket = device.createInsecureRfcommSocketToServiceRecord(m_myUUID)
                     m_bluetoothSocket!!.connect()
                 }
 
-                Toast.makeText(this, "CONEXION EXITOSA", Toast.LENGTH_LONG).show()
-                Log.i("MainActivity", "CONEXION EXITOSA")
+                Toast.makeText(this, "Conexión exitosa", Toast.LENGTH_LONG).show()
+                Log.i("MainActivity", "Conexión exitosa")
 
             } catch (e: IOException) {
                 //connectSuccess = false
                 e.printStackTrace()
-                Toast.makeText(this, "ERROR DE CONEXION", Toast.LENGTH_LONG).show()
-                Log.i("MainActivity", "ERROR DE CONEXION")
+                Toast.makeText(this, "Error de conexión", Toast.LENGTH_LONG).show()
+                Log.i("MainActivity", "Error de conexión")
             }
         }
-
-//        apagar con botones
-//        btnEncenderRojo.setOnClickListener {
-//            sendCommand("U")
-//        }
-//
-//        btnApagarRojo.setOnClickListener {
-//            sendCommand("u")
-//        }
-//
-//        btnEncenderVerde.setOnClickListener {
-//            sendCommand("W")
-//        }
-//
-//        btnApagarVerde.setOnClickListener {
-//            sendCommand("w")
-//        }
 
 //        apagar con switches
         swRojo.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -229,6 +210,7 @@ class MainActivity : AppCompatActivity() {
                     sendCommand("F")
                     isMovingForward = true
                 }
+
                 MotionEvent.ACTION_UP -> {
                     if (isMovingForward) {
                         sendCommand("S")
@@ -245,6 +227,7 @@ class MainActivity : AppCompatActivity() {
                     sendCommand("B")
                     isMovingBackward = true
                 }
+
                 MotionEvent.ACTION_UP -> {
                     if (isMovingBackward) {
                         sendCommand("S")
@@ -261,6 +244,7 @@ class MainActivity : AppCompatActivity() {
                     sendCommand("L")
                     isMovingLeft = true
                 }
+
                 MotionEvent.ACTION_UP -> {
                     if (isMovingLeft) {
                         sendCommand("S")
@@ -277,6 +261,7 @@ class MainActivity : AppCompatActivity() {
                     sendCommand("R")
                     isMovingRight = true
                 }
+
                 MotionEvent.ACTION_UP -> {
                     if (isMovingRight) {
                         sendCommand("S")
